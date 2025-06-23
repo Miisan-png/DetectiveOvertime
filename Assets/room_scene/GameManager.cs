@@ -26,17 +26,26 @@ public class GameManager : MonoBehaviour
             {
                 var p = clue.GetComponent<Placeable>();
                 if (p != null)
+                {
+                    p.gameObject.SetActive(true);
                     p.enabled = true; // Reactivate for second phase
+                    p.placedPrefab.SetActive(false); // Ensure placed prefab is hidden
+                    p.transform.position = p.placedPrefab.transform.position;
+                }
             }
+
+            Debug.Log("All clues placed!");
         }
     }
 
     public void ReportFinalClue()
     {
         finalCluesDelivered++;
+        Debug.Log("Final Clues added: " + finalCluesDelivered);
         if (finalCluesDelivered >= clueObjects.Length)
         {
             completeCanvas.SetActive(true);
+            SoundManager.Instance.PlaySound("sfx_investigate_start");
         }
     }
 
@@ -57,6 +66,8 @@ public class GameManager : MonoBehaviour
         placeables.RemoveAt(index);
         obj.SetActive(true);
         StartCoroutine(PopIn(obj.transform));
+
+        SoundManager.Instance.PlaySound(new SoundVariationizer("sfx_item_out_", 0, 3));
     }
 
     System.Collections.IEnumerator PopIn(Transform t)

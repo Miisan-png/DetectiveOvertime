@@ -23,15 +23,15 @@ public class CriminalManager : MonoBehaviour
         string criminalName;
         if (criminalIndex == 0)
         {
-            criminalName = "John";
+            criminalName = "Sarah";
         }
         else if (criminalIndex == 1)
         {
-            criminalName = "Sarah";
+            criminalName = "MSI";
         }
         else
         {
-            criminalName = "Mike";
+            criminalName = "Gabriela";
         }
 
         _confirmationText.text = $"Select {criminalName} as the criminal?";
