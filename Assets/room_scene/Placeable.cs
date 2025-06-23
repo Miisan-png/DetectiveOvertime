@@ -113,6 +113,7 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
             Vector2 localPoint = zone.transform.InverseTransformPoint(rt.position);
             if (zone.ContainsPoint(localPoint) && clueComponent != null && glowing)
             {
+                Debug.Log("Placed item In Final Drop");
                 finalDropped = true;
                 if (placedPrefab != null)
                 {
@@ -140,9 +141,12 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
                         clueComponent.isPlacedInClueZone = true;
                     }
 
+                    Debug.Log("Placed items conrrectly");
                     SoundManager.Instance.PlaySound("sfx_item_correct");
+
+                    gameObject.SetActive(false);
+
                 }
-                gameObject.SetActive(false);
 
 
                 return;

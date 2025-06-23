@@ -27,10 +27,10 @@ public class GameManager : MonoBehaviour
                 var p = clue.GetComponent<Placeable>();
                 if (p != null)
                 {
-                    p.gameObject.SetActive(true);
+                    //p.gameObject.SetActive(true);
                     p.enabled = true; // Reactivate for second phase
-                    p.placedPrefab.SetActive(false); // Ensure placed prefab is hidden
-                    p.transform.position = p.placedPrefab.transform.position;
+                    //p.placedPrefab.SetActive(false); // Ensure placed prefab is hidden
+                    //p.transform.position = p.placedPrefab.transform.position;
                 }
             }
 
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     bool AllCluesGlowing()
     {
+        if (placeables.Count != 0) return false;
+
         foreach (var clue in clueObjects)
         {
             if (!clue.isPlacedInClueZone) return false;
