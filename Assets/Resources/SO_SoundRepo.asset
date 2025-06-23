@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 907f149fe286b164bba624e1cc4cd6e4, type: 3}
+  m_Name: SO_SoundRepo
+  m_EditorClassIdentifier: 
+  SoundList:
+  - SoundName: sfx_test
+    Clip: {fileID: 8300000, guid: edd2efb783d4b3540ad6b317b54017b6, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_drop_0
+    Clip: {fileID: 8300000, guid: 0c40ca92d9acbe845b30bb69f710dd19, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_drop_1
+    Clip: {fileID: 8300000, guid: 9918eb1837e75834b939b735aa4c802d, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_drop_2
+    Clip: {fileID: 8300000, guid: 67876ef5accfd65419253c0d06b45e87, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  BGMList: []
+  DialoguePath: Dialogues/Voicelines
