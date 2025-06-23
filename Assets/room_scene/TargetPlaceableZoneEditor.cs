@@ -33,7 +33,7 @@ public class TargetPlaceableZoneEditor : Editor
         {
             Vector3 worldPos = t.TransformPoint(zone.localPoints[i]);
             EditorGUI.BeginChangeCheck();
-            var fmh_36_68_638863338941507768 = Quaternion.identity; Vector3 newWorldPos = Handles.FreeMoveHandle(worldPos, 10f, Vector3.zero, Handles.DotHandleCap);
+            var fmh_36_68_638863361541504175 = Quaternion.identity; Vector3 newWorldPos = Handles.FreeMoveHandle(worldPos, 10f, Vector3.zero, Handles.DotHandleCap);
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(zone, "Move Target Zone Point");
