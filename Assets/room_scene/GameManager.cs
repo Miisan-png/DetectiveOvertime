@@ -3,7 +3,51 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public List<GameObject> placeables;
+    public CluePlaceable[] clueObjects;
+    public GameObject completeCanvas;
+
+
+    int finalCluesDelivered = 0;
+
+    void Awake()
+    {
+        Instance = this;
+        completeCanvas.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (AllCluesGlowing() && finalCluesDelivered == 0)
+        {
+            foreach (var clue in clueObjects)
+            {
+                var p = clue.GetComponent<Placeable>();
+                if (p != null)
+                    p.enabled = true; // Reactivate for second phase
+            }
+        }
+    }
+
+    public void ReportFinalClue()
+    {
+        finalCluesDelivered++;
+        if (finalCluesDelivered >= clueObjects.Length)
+        {
+            completeCanvas.SetActive(true);
+        }
+    }
+
+    bool AllCluesGlowing()
+    {
+        foreach (var clue in clueObjects)
+        {
+            if (!clue.isPlacedInClueZone) return false;
+        }
+        return true;
+    }
 
     public void SpawnRandomItem()
     {
@@ -30,4 +74,14 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
+    
+    public bool AllCluesPlaced()
+{
+    foreach (var clue in clueObjects)
+    {
+        if (!clue.isPlacedInClueZone) return false;
+    }
+    return true;
+}
+
 }
