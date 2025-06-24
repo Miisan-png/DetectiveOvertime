@@ -54,6 +54,9 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     {
         if (finalDropped) return;
         dragging = true;
+
+        SoundManager.Instance.PlaySound("sfx_item_select");
+
         if (highlight != null) highlight.color = Color.white;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out var local);
         offset = rt.localPosition - (Vector3)local;
@@ -102,12 +105,15 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
     public void OnPointerUp(PointerEventData eventData)
     {
         dragging = false;
+        SoundManager.Instance.PlaySound("sfx_item_unselect");
+
 
         foreach (var zone in finalDropZones)
         {
             Vector2 localPoint = zone.transform.InverseTransformPoint(rt.position);
             if (zone.ContainsPoint(localPoint) && clueComponent != null && glowing)
             {
+                Debug.Log("Placed item In Final Drop");
                 finalDropped = true;
                 if (placedPrefab != null)
                 {
@@ -115,6 +121,7 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
                 }
                 Destroy(gameObject);
                 GameManager.Instance.ReportFinalClue();
+
                 return;
             }
         }
@@ -128,13 +135,26 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
                 {
                     placedPrefab.SetActive(true);
                     placedPrefab.transform.SetAsLastSibling();
-                    clueComponent = placedPrefab.GetComponent<CluePlaceable>();
-                    if (clueComponent != null) clueComponent.isPlacedInClueZone = true;
+                    clueComponent = transform.GetComponent<CluePlaceable>();
+                    if (clueComponent != null)
+                    {
+                        clueComponent.isPlacedInClueZone = true;
+                    }
+
+                    Debug.Log("Placed items conrrectly");
+                    SoundManager.Instance.PlaySound("sfx_item_correct");
+
+                    gameObject.SetActive(false);
+
                 }
-                gameObject.SetActive(false);
+
+
                 return;
             }
         }
+
+        SoundManager.Instance.PlaySound(new SoundVariationizer("sfx_item_drop_", 0, 3));
+
 
         if (clueComponent != null && !cluePlaced)
         {
@@ -145,6 +165,9 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
                 {
                     clueComponent.isPlacedInClueZone = true;
                     cluePlaced = true;
+
+                    SoundManager.Instance.PlaySound("sfx_item_correct");
+
                     return;
                 }
             }
@@ -157,6 +180,8 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
             if (zone.ContainsPoint(localPoint))
             {
                 inZone = true;
+
+
                 break;
             }
         }
@@ -167,5 +192,7 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
         }
 
         highlight.color = inZone ? Color.white : invalidColor;
+
+
     }
 }

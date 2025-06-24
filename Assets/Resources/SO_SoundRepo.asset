@@ -37,5 +37,47 @@ MonoBehaviour:
     Volume: 1
     SpatialBlend: 0
     Pitch: 1
+  - SoundName: sfx_investigate_start
+    Clip: {fileID: 8300000, guid: 435cb3efa4d6b5444a29a2669302b43d, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_correct
+    Clip: {fileID: 8300000, guid: 71bf5624e050b49439996a1b98ee8ce1, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_out_0
+    Clip: {fileID: 8300000, guid: 9ff6556b7a71afc4a91f27cbba2c875e, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_out_1
+    Clip: {fileID: 8300000, guid: cf1196bbaee1ce740883fba019b7dd5f, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_out_2
+    Clip: {fileID: 8300000, guid: 6ed77c363b2065b4186f257ec7fa3caa, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_select
+    Clip: {fileID: 8300000, guid: 5712a398b97cfb54491ef2662a295b97, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_item_unselect
+    Clip: {fileID: 8300000, guid: e2c6be0706eee7541b92381f49c2ead5, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
   BGMList: []
   DialoguePath: Dialogues/Voicelines
