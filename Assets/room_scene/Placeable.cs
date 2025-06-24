@@ -55,10 +55,18 @@ public class Placeable : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoin
         if (finalDropped) return;
         dragging = true;
 
+        transform.SetParent(transform.parent); 
+        transform.SetAsLastSibling();         
+
         SoundManager.Instance.PlaySound("sfx_item_select");
 
         if (highlight != null) highlight.color = Color.white;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out var local);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.transform as RectTransform,
+            eventData.position,
+            eventData.pressEventCamera,
+            out var local
+        );
         offset = rt.localPosition - (Vector3)local;
     }
 
