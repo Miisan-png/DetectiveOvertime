@@ -79,5 +79,17 @@ MonoBehaviour:
     Volume: 1
     SpatialBlend: 0
     Pitch: 1
+  - SoundName: sfx_win
+    Clip: {fileID: 8300000, guid: 28a6d969f710eed429b767510e281508, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
+  - SoundName: sfx_lose
+    Clip: {fileID: 8300000, guid: 992ec3ed88943cb44b33abe612dcee23, type: 3}
+    AttachedParent: {fileID: 0}
+    Volume: 1
+    SpatialBlend: 0
+    Pitch: 1
   BGMList: []
   DialoguePath: Dialogues/Voicelines

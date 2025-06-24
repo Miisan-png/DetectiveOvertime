@@ -42,13 +42,15 @@ public class CriminalManager : MonoBehaviour
         _confirmationUI.SetActive(false);
 
 
-        if (_selectedCriminal == 1)
+        if (_selectedCriminal == 0)
         {
             _winUI.SetActive(true);
+            SoundManager.Instance.PlaySound("sfx_win");
         }
         else
         {
             _loseUI.SetActive(true);
+            SoundManager.Instance.PlaySound("sfx_lose");
         }
     }
 
